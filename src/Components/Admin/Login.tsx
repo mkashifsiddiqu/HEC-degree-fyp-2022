@@ -11,8 +11,8 @@ import firefox from '@/public/Brower/firefox.svg'
 import opera from '@/public/Brower/opera.svg'
 import safari from '@/public/Brower/safari.svg'
 import edge from '@/public/Brower/edge.svg'
-import idCard from '@/public/ForgotPassword/dasid.png';
-import emailPic from '@/public/ForgotPassword/email.png';
+// import idCard from '@/public/ForgotPassword/dasid.png';
+// import emailPic from '@/public/ForgotPassword/email.png';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import bg from '@/public/BackgroundImage/bg.jpg';
@@ -139,12 +139,12 @@ const Login = () => {
                     }}
                   >
                     <Box>
-                      <Image
+                      {/* <Image
                         src={idCard}
                         alt={`Id Card`}
                         width={`35px`}
                         height={`25px`}
-                      />
+                      /> */}
                     </Box>
                     <Box
                       display={`flex`}
@@ -176,12 +176,12 @@ const Login = () => {
                     }}
                   >
                     <Box>
-                      <Image
+                      {/* <Image
                         src={emailPic}
                         alt={`Id Card`}
                         width={`35px`}
                         height={`25px`}
-                      />
+                      /> */}
                     </Box>
                     <Box
                       display={`flex`}

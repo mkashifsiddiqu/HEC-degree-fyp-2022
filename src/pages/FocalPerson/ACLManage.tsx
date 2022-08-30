@@ -33,6 +33,7 @@ const ACLManage = () => {
   const [checked4, setChecked4] = React.useState(false);
   const [checked6, setChecked6] = React.useState(false);
   //For initializing Array for Pages
+  const Domain = process.env.Domain
   React.useEffect(() => {
     setPages([])
   }, [])

@@ -12,7 +12,6 @@ import Checkbox from '@mui/material/Checkbox';
 import { Box, Button } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useSelector } from 'react-redux';
-const Domain = process.env.Domain
 interface Pages{
   name:string
 }
@@ -33,7 +32,7 @@ export default function BasicTable({refresh,setFresh}:RProp) {
   const fetchTable = async () => {
     setFresh(false)
     const data = {instituteName}
-    const res = await fetch(`${Domain}/api/focalPerson/getAllUser/`, {
+    const res = await fetch(`/api/focalPerson/getAllUser/`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,

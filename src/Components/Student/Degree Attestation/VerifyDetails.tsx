@@ -113,7 +113,7 @@ const VerifyDetails = () => {
   const getMode = async () => {
     const data = { email };
     const res = await fetch(
-      `http://localhost:3000/api/Student/Application/Mode/getMode`,
+      `/api/Student/Application/Mode/getMode`,
       {
         method: `POST`, //BECAUSE WE CHECK WITH EMAIL
         headers: {
@@ -137,7 +137,7 @@ const VerifyDetails = () => {
   //========================Verify User Detail ==========================
   const getUserDetail = async () => {
     const data = { email };
-    const URL = `http://localhost:3000/api/Student/User/getUserDetailwithApplication`;
+    const URL = `/api/Student/User/getUserDetailwithApplication`;
     const res = await fetch(URL, {
       method: `POST`, //BECAUSE WE CHECK User EMAIL
       headers: {

@@ -43,7 +43,7 @@ const Login = () => {
   const onSubmit = async (e: MouseEvent) => {
     e.preventDefault();
     const data = { email, password }
-    const res = await fetch(`${Domain}/api/admin/User/login`, {
+    const res = await fetch(`/api/admin/User/login`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,
@@ -267,7 +267,7 @@ const Login = () => {
                     label={`Email`}
                     helperText="Please Enter Email"
                     sx={{ width: `382px`, height: `48px` }}
-                    InputLabelProps={{ style: { fontWeight: 500, fontSize: `13px`, fontFamily: `montserrat`, color: `#2e7d32` } }}
+                    InputLabelProps={{ style: { fontWeight: 500, fontSize: `13px`} }}
                     size={`small`}
                     value={email}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -282,7 +282,7 @@ const Login = () => {
                       type={`password`}
                       sx={{ width: `382px`, height: `48px`, mt: `20px` }}
                       size={`small`}
-                      InputLabelProps={{ style: { fontWeight: 500, fontSize: `13px`, fontFamily: `montserrat`, color: `#2e7d32` } }}
+                      InputLabelProps={{ style: { fontWeight: 500, fontSize: `13px`} }}
                       helperText={`Please Enter Password`}
                       value={password}
                       onChange={(e: ChangeEvent<HTMLInputElement>) => {

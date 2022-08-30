@@ -66,7 +66,7 @@ const Detailofdegree = () => {
   const [degreeList,setDegreeList] = useState([]);
    // Detail of Existing Degree Card
 const getEducation = async () =>{
-    const URL = `http://localhost:3000/api/Student/Education/EducationDetails`
+    const URL = `/api/Student/Education/EducationDetails`
     const data = {Email}
     const res = await fetch(URL, {
       method: `PATCH`, // or 'PUT'
@@ -117,7 +117,7 @@ const getEducation = async () =>{
     seShowAcco(false)
     console.log(data)
     // Write Backend Here Only
-    const URL = `http://localhost:3000/api/Student/Education/EducationDetails`
+    const URL = `/api/Student/Education/EducationDetails`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -135,7 +135,7 @@ const getEducation = async () =>{
   const handleDeleteEdu =async(id:string)=>{
 
     setloading(true)
-    const URL = `http://localhost:3000/api/Student/Education/EducationDetails`
+    const URL = `/api/Student/Education/EducationDetails`
     const data ={id}
     const res = await fetch(URL, {
       method: `DELETE`, // or 'PUT'
@@ -208,7 +208,7 @@ const getEducation = async () =>{
   //********For Editing Degree Request************************** */
   const handleEditForEdu =async()=>{
     seShowAcco(false)
-    const URL = `http://localhost:3000/api/Student/Education/getEducationById`
+    const URL = `/api/Student/Education/getEducationById`
     const data ={id:temporyID,
       Qualilevel, degstart, endDeg, NameDeg,
       Country, InsituteName, InsistuteNameOnDegree, Program,

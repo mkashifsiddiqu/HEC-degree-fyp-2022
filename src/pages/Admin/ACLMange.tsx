@@ -10,6 +10,7 @@ import {
   FormControlLabel, Checkbox, Button, Box, Paper, IconButton, Snackbar, Alert, Typography,
 } from '@mui/material';
 import ACLTable from '@/Components/Admin/ACLTable';
+const Domain = process.env.Domain
 interface Page {
   name: string,
   link: string

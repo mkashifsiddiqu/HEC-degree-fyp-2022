@@ -14,7 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       });
       console.log(Application)
       const AppSaved = await Application.save();
-      const user = await new UserDetail.findOneAndUpdate({'Email': req.body.email},{
+      const user = await UserDetail.findOneAndUpdate({'Email': req.body.email},{
         $push:{
           Application:{
             _id:AppSaved._id

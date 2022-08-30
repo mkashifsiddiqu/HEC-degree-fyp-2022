@@ -189,7 +189,7 @@ const Personaldetails:FC<PersonalProps> = ({
         console.log(`Current progress:`,(Math.round((event.loaded * 100) / event.total)));
       },
     };
-    const response = await axios.post(`http://localhost:3000/api/Profile/student/upload`, formData, config);
+    const response = await axios.post(`/api/Profile/student/upload`, formData, config);
     console.log(`response`, response.data);
     if(response.data)
     {const { imagefile } = response.data
@@ -212,7 +212,7 @@ const Personaldetails:FC<PersonalProps> = ({
   }
   const addNewProfile =async()=>{
   const  data={email,imageurl}
-  const res = await fetch(`http://localhost:3000/api/Profile/student/AddNewprofile`, {
+  const res = await fetch(`/api/Profile/student/AddNewprofile`, {
   method: `POST`, //BECAUSE WE CHECK WITH EMAIL 
   headers: {
       'Content-Type': `application/json`,
@@ -260,7 +260,7 @@ const Personaldetails:FC<PersonalProps> = ({
                 </label>
 
               </button>
-               { profImage ?<Image width={`100px`} height={`100px`} layout='fixed' src={profImage?profImage:`http://localhost:3000/api/Profile/student/${imageurl}`} 
+               { profImage ?<Image width={`100px`} height={`100px`} layout='fixed' src={profImage?profImage:`/api/Profile/student/${imageurl}`} 
                alt="profile"/>:<CircularProgress/>}
             </Box>
             <Grid container spacing={2}>

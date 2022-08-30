@@ -140,7 +140,7 @@ const DocumentUpload = () => {
   }
   const submitDocment =async () => {
     const data = { uploadFrontLink, uploadBackLink, uploadDegreeLink,email }
-    const URL = `http://localhost:3000/api/Student/Application/upload/addDoc`
+    const URL = `/api/Student/Application/upload/addDoc`
     if(uploadFrontLink)
     {const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
@@ -154,7 +154,7 @@ const DocumentUpload = () => {
   }
   const getDocment =async () => {
     const data = { email }
-    const URL = `http://localhost:3000/api/Student/Application/upload/getAllDocument`
+    const URL = `/api/Student/Application/upload/getAllDocument`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -188,7 +188,7 @@ useEffect(() => {
         onClose={handleImageClose}
         sx={{display:`flex`,justifyContent:`center`,alignItems:`center`}}
         > 
-        <img src={`http://localhost:3000/api/Doc/previewdoc/${imageName}`} alt="upload"/>
+        <img src={`/api/Doc/previewdoc/${imageName}`} alt="upload"/>
         </Modal>
       <Alert
         icon={<LightbulbIcon />}

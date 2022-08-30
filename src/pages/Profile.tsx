@@ -24,6 +24,7 @@ import VerifiedIcon from '@mui/icons-material/Verified';
 import AddresInformation from '@/Components/Student/Profile/Address information/AddresInformation';
 import EducationDetail from '@/Components/Student/Profile/Education Details/EducationStepper';
 import { useSelector } from 'react-redux';
+const Domain = process.env.Domain
 const Profile = () => {
   const list = useSelector((state)=>state.stdLoginReducer.userData)
   const {name,email,identityNumber} = list.data
@@ -38,7 +39,7 @@ const Profile = () => {
   };
   const getProfile =async ()=>{
     const  data={email}
-    const res = await fetch(`http://localhost:3000/api/Profile/student/getProfilePicture`, {
+    const res = await fetch(`/api/Profile/student/getProfilePicture`, {
     method: `POST`, //BECAUSE WE CHECK WITH EMAIL 
     headers: {
         'Content-Type': `application/json`,
@@ -101,7 +102,7 @@ const Profile = () => {
               </Link>
               <Box display={`flex`} alignItems={`center`} flexWrap={`wrap`}>
                 <Avatar sx={{ width: 80, height: 80, margin: `0 10px 0 0` }}
-                src={`http://localhost:3000/api/Profile/student/${ProfileImage}`}
+                src={`/api/Profile/student/${ProfileImage}`}
                 >
                 </Avatar>
                 <Box>

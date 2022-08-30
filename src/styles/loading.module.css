@@ -29,7 +29,7 @@
   margin: auto;
   border: 3px solid transparent;
   border-top-color: #3e3c77;
-  border-bottom-color: #3e3c77;
+  /* border-bottom-color: #3e3c77; */
   border-radius: 50%;
   z-index: 2;
   -webkit-animation: 2s linear infinite spin;
@@ -49,7 +49,7 @@
   margin: auto;
   border: 3px solid transparent;
   border-top-color: #0e9755;
-  border-bottom-color: #0e9755;
+  /* border-bottom-color: #0e9755; */
   border-radius: 50%;
   z-index: 2;
   -webkit-animation: 1s linear infinite spin;
@@ -71,6 +71,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.main{
+  height:100vh;
+  width:100%;
+  background-color:rgba(0,0,0,.85)
 }
 
 @keyframes spin {

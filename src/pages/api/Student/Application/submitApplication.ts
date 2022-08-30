@@ -8,8 +8,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const Application = await ApplicationModel.findByIdAndUpdate({_id:req.body.ApplicationId},{
         Status: req.body.applicationStatus,
       });
-      console.log(Application)
-      console.log(`file from client toserver :`,req.body.uploadDegreeLink)
+      // console.log(Application)
+      // console.log(`file from client toserver :`,req.body.uploadDegreeLink)
      if (Application) {
         if(req.body.applicationStatus!=`submit`){
           const App = await ApplicationModel.findById({_id:req.body.ApplicationId})

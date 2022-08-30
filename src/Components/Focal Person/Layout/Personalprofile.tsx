@@ -37,7 +37,7 @@ export default function BasicMenu() {
   return (
     <>
     <div>
-      <Button disableRipple onClick={handleClick} sx={{textTransform: `none`, '&:hover': { backgroundColor: `transparent` } }}><Typography display={`flex`} alignItems={`center`} fontFamily={`montserrat`} fontWeight={600} fontSize={13} color="#636177">Greetings, {name}<Avatar sx={{ marginLeft: `0.55rem` }}>F</Avatar></Typography></Button>
+      <Button disableRipple onClick={handleClick} sx={{textTransform: `none`, '&:hover': { backgroundColor: `transparent` } }}><Typography display={`flex`} alignItems={`center`} fontFamily={`montserrat`} fontWeight={600} fontSize={13} color="#636177">Greetings, {name?name:`Bakar`}<Avatar sx={{ marginLeft: `0.55rem` }}>F</Avatar></Typography></Button>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}

@@ -12,7 +12,7 @@ import Facultyinstruction from '@/Components/Student/E-Course/Instruction/Facult
 import Alumniinstruction from '@/Components/Student/E-Course/Instruction/Alumniinstruction';
 import Students from '@/Components/Student/E-Course/Students';
 import { useSelector } from 'react-redux';
-
+const Domain = process.env.Domain
 const Ecourses = () => {
   const list = useSelector((state) => state.stdLoginReducer.userData)
   const { email } = list.data
@@ -31,7 +31,7 @@ const Ecourses = () => {
   }, []);
   const handleClose = () => setOpen(false);
   //Application
-  const [applicationStatus, setapplicationStatus] = useState<string>(`Submit`)
+  const [applicationStatus, setapplicationStatus] = useState<string>(`submit`)
   //==================Agree Check Box==========
   const [agreeCheck, setagreeCheck] = useState<boolean>(false)
   //State
@@ -67,14 +67,12 @@ const Ecourses = () => {
 
   const createApplication = async () => {
     const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-    const fullDate = Date(date)
-   const ApplicationType = `E-Course`
+    const ApplicationType = `E-Course`
     const data = {
       applicationStatus, ApplicationType,
-      date:fullDate,email
+      date:new Date(),email
     }
-    const res = await fetch(`http://localhost:3000/api/Student/Application/createApplication`, {
+    const res = await fetch(`/api/Student/Application/createApplication`, {
       method: `POST`,
       headers: {
         'Content-Type': `application/json`,
@@ -101,7 +99,7 @@ const Ecourses = () => {
       // Phase IV
       uploadBankFee,uploadTrancript
     }
-    const res = await fetch(`http://localhost:3000/api/Student/User/userDetail`, {
+    const res = await fetch(`/api/Student/User/userDetail`, {
         method: `POST`, // or 'PUT'
         headers: {
           'Content-Type': `application/json`,

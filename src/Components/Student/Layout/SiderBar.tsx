@@ -42,8 +42,8 @@ const SideBar = () => {
       <Box>
       <nav className={styles.main_menu}>
         <ul className={styles.ul}>
-          <Box sx={{backgroundColor:`black`}}>
          <li className={styles.li}>
+          
             <Link href="/Dashboard">
               <a className={styles.a} href="#">
                 <FontAwesomeIcon className="fa-lg" icon={faHome as IconProp} />
@@ -51,7 +51,6 @@ const SideBar = () => {
               </a>
             </Link>
           </li>
-          </Box>
           <li className={styles.li}>
             <Link href="/DegreeAttestation">
               <a className={styles.a} href="#">

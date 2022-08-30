@@ -83,7 +83,7 @@ const handleChange =
   const [sessionList,setsessionList]= useState([])
   const getCountry = async() =>{
    
-    const URL = `${Domain}/api/hec/countryList/`
+    const URL = `/api/hec/countryList/`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -104,7 +104,7 @@ const handleChange =
     getCountry()
   }, [])
 const getProgrambyID = async() =>{
-    const URL = `${Domain}/api/hec/ListofProgram/${InsituteName}`
+    const URL = `/api/hec/ListofProgram/${InsituteName}`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -129,7 +129,7 @@ const getProgrambyID = async() =>{
   //For Campus 
   const [programId, setprogramId] = useState<string>(``)
   const getCampusbyID = async() =>{
-    const URL = `${Domain}/api/hec/ListofCampus/${programId}`
+    const URL = `/api/hec/ListofCampus/${programId}`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -155,7 +155,7 @@ const getProgrambyID = async() =>{
   //For Department 
   const [campusId, setCampusId] = useState<string>(``)
   const getDepartmentbyID = async() =>{
-    const URL = `${Domain}/api/hec/ListofDepartment/${campusId}`
+    const URL = `/api/hec/ListofDepartment/${campusId}`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -180,7 +180,7 @@ const getProgrambyID = async() =>{
 //for Degree Type
 const [DepartmentId, setDepartmentId] = useState<string>(``)
 const getDegreeTypeID = async() =>{
-  const URL = `${Domain}/api/hec/ListOfdegreeType/${DepartmentId}`
+  const URL = `/api/hec/ListOfdegreeType/${DepartmentId}`
   const res = await fetch(URL, {
     method: `GET`, // or 'PUT'
     headers: {
@@ -204,7 +204,7 @@ useEffect(()=>{
 //for Session
 const [DegreeTypetId, setDegreeTypetId] = useState<string>(``)
 const getSessionID = async() =>{
-  const URL = `${Domain}/api/hec/ListOfSession/${DegreeTypetId}`
+  const URL = `/api/hec/ListOfSession/${DegreeTypetId}`
   const res = await fetch(URL, {
     method: `GET`, // or 'PUT'
     headers: {

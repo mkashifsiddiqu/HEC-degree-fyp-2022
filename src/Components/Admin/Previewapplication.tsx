@@ -145,11 +145,11 @@ const previewapplication:FC<PersonalProps> = ({
                 <Grid container spacing={2}>
                     <Grid item md={4} xs={12}><Typography>CNIC Front: </Typography></Grid>
                     <Grid item xs={12}>
-                    <img src={`http://localhost:3000/api/Doc/previewdoc/${uploadFrontLink}`} alt="upload"/>
+                    <img src={`/api/Doc/previewdoc/${uploadFrontLink}`} alt="front"/>
                     </Grid>
                     <Grid item md={4} xs={12}><Typography>CNIC Back: </Typography></Grid>
                     <Grid item xs={12}>
-                    <img src={`http://localhost:3000/api/Doc/previewdoc/${uploadBackLink}`} alt="upload"/>
+                    <img src={`/api/Doc/previewdoc/${uploadBackLink}`} alt="back"/>
                     </Grid>
                 </Grid>
             </Box>
@@ -159,7 +159,7 @@ const previewapplication:FC<PersonalProps> = ({
                 <Grid container spacing={2}>
                     <Grid item md={4} xs={12}><Typography>Degree: </Typography></Grid>
                     <Grid item xs={12}>
-                    <img src={`http://localhost:3000/api/Doc/previewdoc/${uploadDegreeLink}`} alt="upload"/>
+                    <img src={`/api/Doc/previewdoc/${uploadDegreeLink}`} alt="deegree"/>
                     </Grid>
 
                 </Grid>

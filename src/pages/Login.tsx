@@ -20,10 +20,7 @@ import { useRouter } from 'next/router';
 import { loginStudent } from '@/Components/Redux/action/index'
 import { useDispatch } from 'react-redux'
 import GuestVerify from '@/Components/Student/Auth/GuestVerify';
-// import {getSession}  from '../pages/api/Session/lib/get-session'
-// import SignUp from '@/pages/SignUp';
-// import  {signIn} from 'next-auth/react'
-
+const Domain = process.env.Domain
 import {setCookie} from "cookies-next"
 
 const theme = createTheme({
@@ -59,6 +56,7 @@ const Login = () => {
     e.preventDefault();
     //identityNumber because in model and other backend use this name
     const data = { identityNumber, password }
+    //console.log(`Domain`,Domain)
     const res = await fetch(`/api/Student/User/login`, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -356,7 +354,7 @@ const Login = () => {
                     </Typography>
                     <Button
                       variant={`contained`}
-                      onClick={(e)=>onSubmit(e)}
+                      onClick={onSubmit}
                       sx={{
                         width: `382px`,
                         height: `48px`,

@@ -16,7 +16,8 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { Visibility } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
-import Slider from '@/Components/Admin/DegreeIssuence/slider'
+import Slider from '@/Components/Admin/DegreeIssuence/Slider'
+const Domain = process.env.Domain
 function createData(
   name: string,
   status: String,
@@ -69,7 +70,7 @@ const Degreetemplate = () => {
   
   const [imagePreview,setimagePreview] = useState(``)
   const getAllDegreeTemplate = async () => {
-    const URL = `http://localhost:3000/api/degree/AdminSide/requestTemplate`
+    const URL = `/api/degree/AdminSide/requestTemplate`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {

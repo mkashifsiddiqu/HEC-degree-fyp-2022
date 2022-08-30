@@ -2,7 +2,7 @@
 import ConnectDb from '../../../Server/middleware/connection';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import FPLogin from '../../../Server/Models/FocalPerson/FPLogin';
-import sendNewPassword from '../../../Server/MailSender/mailer'
+import {sendNewPassword} from '../../../Server/MailSender/mailer'
 import CryptoJS from 'crypto-js'
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method == `POST`) {
@@ -15,7 +15,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       name: req.body.name,
     });
     const UserSaved = await User.save();
-    //const MailSend= await sendNewPassword({toUser:{email:req.body.email,instituteName:req.body.instituteName},hash:CryptoJS.AES.encrypt(req.body.email,`hash123`).toString()})
+  const MailSend= await sendNewPassword({toUser:{email:req.body.email,instituteName:req.body.instituteName},hash:CryptoJS.AES.encrypt(req.body.email,`hash123`).toString()})
     if (UserSaved) {
       res.status(201).json({ success: true,UserSaved});
     } else {

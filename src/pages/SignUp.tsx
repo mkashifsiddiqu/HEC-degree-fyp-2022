@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import Image from 'next/image';
 import logo from '@/public/logo-white.png'
 import { useRouter } from 'next/router';
+const Domain = process.env.Domain
 const styles = {
   resize: {
     fontSize: `0.719`,
@@ -72,7 +73,7 @@ const SignUp = () => {
 
     }
     console.log(data)
-    const res = await fetch(`/api/Student/User/register`, {
+    const res = await fetch(`${Domain}/api/Student/User/register`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,

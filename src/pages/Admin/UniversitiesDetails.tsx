@@ -11,6 +11,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { Add } from '@mui/icons-material';
+const Domain = process.env.Domain
 //Data Type 
 interface fpDetail {
   email: string,
@@ -64,7 +65,7 @@ const UniveristiesDetails = () => {
 
  //=================================Country =========================
   const getAllcountryList = async () => {
-    const URL = `http://localhost:3000/api/hec/countryList`
+    const URL = `/api/hec/countryList`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -81,7 +82,7 @@ const UniveristiesDetails = () => {
   const addNewCountryInDB = async () => {
     handleClose3()
     const data = { countryTitle }
-    const URL = `http://localhost:3000/api/hec/AddNewCountry`
+    const URL = `/api/hec/AddNewCountry`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -105,7 +106,7 @@ const UniveristiesDetails = () => {
   const updateCountry = async () => {
     handleClose3()
     const data = { countryId, countryTitle }
-    const URL = `http://localhost:3000/api/hec/updateCountry`
+    const URL = `/api/hec/updateCountry`
     const res = await fetch(URL, {
       method: `PATCH`, // or 'PUT'
       headers: {
@@ -128,7 +129,7 @@ const UniveristiesDetails = () => {
     }
   }
   const delCountry = async () => {
-    const URL = `http://localhost:3000/api/hec/delCountry/${countryId}`
+    const URL = `/api/hec/delCountry/${countryId}`
     const res = await fetch(URL, {
       method: `DELETE`, // or 'PUT'
       headers: {
@@ -146,7 +147,7 @@ const UniveristiesDetails = () => {
   const updateInsistute = async () => {
     handleClose2()
     const data = { insistuteId, instituteTitle: instituteName }
-    const URL = `http://localhost:3000/api/hec/ListOfInsistute/updateInsistute`
+    const URL = `/api/hec/ListOfInsistute/updateInsistute`
     const res = await fetch(URL, {
       method: `PATCH`, // or 'PUT'
       headers: {
@@ -171,7 +172,7 @@ const UniveristiesDetails = () => {
   const addNewInsistute = async () => {
     handleClose2()
     const data = { countryTitle, instituteTitle: instituteName }
-    const URL = `http://localhost:3000/api/hec/AddNewInsistute`
+    const URL = `/api/hec/AddNewInsistute`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -194,7 +195,7 @@ const UniveristiesDetails = () => {
     }
   }
   const delInsistute = async () => {
-    const URL = `http://localhost:3000/api/hec/ListOfInsistute/delInsistute/${insistuteId}`
+    const URL = `/api/hec/ListOfInsistute/delInsistute/${insistuteId}`
     const res = await fetch(URL, {
       method: `DELETE`, // or 'PUT'
       headers: {
@@ -212,7 +213,7 @@ const UniveristiesDetails = () => {
   //Api to get All Focal Person(FP) Email
   const fetchEmail = async () => {
     const data = { instituteName }
-    const res = await fetch(`http://localhost:3000/api/focalPerson/getAllUser`, {
+    const res = await fetch(`/api/focalPerson/getAllUser`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,

@@ -12,7 +12,6 @@ import { autoPlay } from 'react-swipeable-views-utils';
 import { Tooltip, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckIcon from '@mui/icons-material/Check';
-const Domain = process.env.Domain
 interface AutoProps{
   templateId:[]
 }
@@ -41,7 +40,7 @@ function SwipeableTextMobileStepper({
  const templateVerify=async () => {
   const data ={templeRegId,templeReg}
   if(templeRegId)
- {const URL = `${Domain}/api/degree/verifytemplate`
+ {const URL = `/api/degree/verifytemplate`
   const res = await fetch(URL, {
     method: `POST`, // or 'PUT'
     headers: {
@@ -94,7 +93,7 @@ useEffect(() => {
                   overflow: `hidden`,
                   width: `100%`,
                 }}
-                src={`${Domain}/api/degree/preveiwImage/${step.templateUrl}`}
+                src={`/api/degree/preveiwImage/${step.templateUrl}`}
                 alt={step.startDate}
               />
               <Box sx={{display:`flex`,justifyContent:`space-evenly`,width:`100%`}}>

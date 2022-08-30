@@ -17,7 +17,8 @@ import React,{useEffect,useState} from 'react';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import { Visibility } from '@mui/icons-material';
-import Previewapplication from '@/Components/Admin/previewapplication'
+import Previewapplication from '@/Components/Admin/Previewapplication'
+const Domain = process.env.Domain
 const DegreeVerification = () => {
   //==============================View Applicient Detail ====================
   
@@ -72,7 +73,7 @@ const DegreeVerification = () => {
   const [uploadBackLink, setuploadBackLink] = useState<string>(``)
   const [uploadDegreeLink, setuploadDegreeLink] = useState<string>(``)
   const getAllApplication = async () => {
-   const res = await fetch(`http://localhost:3000/api/admin/Application/getAllApplication`, {
+   const res = await fetch(`/api/admin/Application/getAllApplication`, {
       method: `GET`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,
@@ -91,7 +92,7 @@ const DegreeVerification = () => {
     }
   }
   const ListofVerifiedApp =async()=>{
-    const res = await fetch(`http://localhost:3000/api/admin/Application/getAllverifyApplicayion`, {
+    const res = await fetch(`/api/admin/Application/getAllverifyApplicayion`, {
       method: `GET`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,
@@ -108,7 +109,7 @@ const DegreeVerification = () => {
     console.log(`file in Client before vp`,uploadDegreeLink)
     const data ={ApplicationId,applicationStatus:ApplicationStatus,uploadDegreeLink}
     console.log(data)
-    const res = await fetch(`http://localhost:3000/api/Student/Application/submitApplication`, {
+    const res = await fetch(`/api/Student/Application/submitApplication`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,
@@ -126,7 +127,7 @@ const DegreeVerification = () => {
     }
   //  const getNationality =()=>{
   //   const data = { email }
-  //     const URL = `http://localhost:3000/api/Student/Application/upload/getAllDocument`
+  //     const URL = `/api/Student/Application/upload/getAllDocument`
   //     const res = await fetch(URL, {
   //       method: `POST`, // or 'PUT'
   //       headers: {
@@ -139,7 +140,8 @@ const DegreeVerification = () => {
     //Get All Document =========
     const getDocment =async () => {
       const data = { email }
-      const URL = `http://localhost:3000/api/Student/Application/upload/getAllDocument`
+      console.log(`in DOC`)
+      const URL = `/api/Student/Application/upload/getAllDocument`
       const res = await fetch(URL, {
         method: `POST`, // or 'PUT'
         headers: {
@@ -150,7 +152,7 @@ const DegreeVerification = () => {
       const response = await res.json()
       if(response.success){
         const {Doc} =response
-        console.log(Doc)
+        console.log(`Doc`,Doc)
        setuploadFrontLink(Doc?.frontSide)
        setuploadBackLink(Doc?.backSide)
        setuploadDegreeLink(Doc?.degree)
@@ -160,7 +162,7 @@ const DegreeVerification = () => {
   const getAllEducation = async () =>{
    const data ={email}
     console.log(data)
-    const res = await fetch(`http://localhost:3000/api/admin/Application/getEducation`, {
+    const res = await fetch(`/api/admin/Application/getEducation`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,
@@ -188,7 +190,7 @@ const DegreeVerification = () => {
     getAllEducation()
     getDocment()
     console.log(data)
-    const res = await fetch(`http://localhost:3000/api/admin/Application/getApplicientData`, {
+    const res = await fetch(`/api/admin/Application/getApplicientData`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,

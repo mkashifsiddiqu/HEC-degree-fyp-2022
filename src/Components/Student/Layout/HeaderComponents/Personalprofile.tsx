@@ -30,7 +30,7 @@ export default function BasicMenu() {
   const [ProfileImage,setProfileImage] =useState<string>(``)
   const getProfile =async ()=>{
   const  data={email}
-  const res = await fetch(`http://localhost:3000/api/Profile/student/getProfilePicture`, {
+  const res = await fetch(`/api/Profile/student/getProfilePicture`, {
   method: `POST`, //BECAUSE WE CHECK WITH EMAIL 
   headers: {
       'Content-Type': `application/json`,
@@ -58,7 +58,7 @@ useEffect(() => {
                 Greetings, {name}
                 <Avatar 
                 
-                src={`http://localhost:3000/api/Profile/student/${ProfileImage}`}
+                src={`/api/Profile/student/${ProfileImage}`}
                 sx={{ marginLeft: `0.55rem`,
                 //backgroundImage:`url(${picture})`,backgroundSize:`100% 100%`,backgroundRepeat:`no-repeat`
                 
@@ -81,7 +81,7 @@ useEffect(() => {
           <Box 
           border={1} borderColor="#fff" borderRadius={`2px`} margin='1' height={`60px`} 
           width={`60px`} 
-          sx={{backgroundImage:`url(http://localhost:3000/api/Profile/student/${ProfileImage})`,
+          sx={{backgroundImage:`url(/api/Profile/student/${ProfileImage})`,
           backgroundSize:`100% 100%`,backgroundRepeat:`no-repeat`}}
           >
             {/* <Image  height={`60px`} width={`60px`}  src={picture} alt="pic"></Image> */}
@@ -100,7 +100,8 @@ useEffect(() => {
               transition={{ type: `tween` }}
             >
               <Box>
-                <Link useHref={`#`} onClick={() => router.push(`/Profile`)} sx={{ textDecoration: `none` }} passHref>
+                <Link useHref={`#`} onClick={() => router.push(`/Profile`)} 
+                sx={{ textDecoration: `none` }} passHref>
                   <Typography fontFamily={`montserrat`} fontSize={13} fontWeight={600} color="#6a6a6a">My Profile</Typography>
                   <Typography marginTop={1} fontFamily={`montserrat`} fontSize={12} fontWeight={500} color="#b1b1b1">Account settings and more</Typography>
                 </Link>

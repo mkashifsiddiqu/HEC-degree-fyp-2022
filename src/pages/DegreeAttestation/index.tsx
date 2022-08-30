@@ -39,6 +39,7 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 
 import ModelOfApplication from '@/Components/Student/Degree Attestation/ModelOfApplication';
+const Domain = process.env.Domain
 const useStyles = makeStyles({
   paper: {
     padding: '1.5em',
@@ -257,7 +258,7 @@ const DegreeAttestation = () => {
       address,
     }
     // if (email != `Studen@demo.com`) {
-    const res = await fetch(`http://localhost:3000/api/Student/User/userDetail`, {
+    const res = await fetch(`/api/Student/User/userDetail`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,
@@ -276,17 +277,15 @@ const DegreeAttestation = () => {
   //Application mode EDIT or New 
   const [ApplicationMode, setApplicationMode] = useState(`New`)
   const createApplication = async () => {
-    const current = new Date();
-    const fullDate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-    const date = Date(fullDate)
+    
     // const fullDate = new Date.now()
     // const currentDate = `${fullDate.getDate()}/${fullDate.getMonth() + 1}/${fullDate.getFullYear()}`
     const ApplicationType = `Degree Attestation Service`
     const data = {
       applicationStatus, ApplicationType,
-      date,email
+      date:new Date() ,email
     }
-    const res = await fetch(`http://localhost:3000/api/Student/Application/createApplication`, {
+    const res = await fetch(`/api/Student/Application/createApplication`, {
       method: `POST`,
       headers: {
         'Content-Type': `application/json`,
@@ -303,7 +302,7 @@ const DegreeAttestation = () => {
   //Get Application
   const getExistApplication = async () => {
     const data = { email }
-    const res = await fetch(`http://localhost:3000/api/Student/Application/getExistApplication`, {
+    const res = await fetch(`/api/Student/Application/getExistApplication`, {
       method: `POST`, //BECAUSE WE CHECK WITH EMAIL 
       headers: {
         'Content-Type': `application/json`,
@@ -339,7 +338,7 @@ const DegreeAttestation = () => {
   const [cityDistrict,setCityDistrict]= useState(``)
   const modeOfAttestion =async() =>{
     const data ={mode,whereCheck,cityDistrict,Disability}
-    const res = await fetch(`http://localhost:3000/api/Student/Application/Mode/ModeofAttestation`, {
+    const res = await fetch(`/api/Student/Application/Mode/ModeofAttestation`, {
       method: `POST`, //BECAUSE WE CHECK WITH EMAIL 
       headers: {
         'Content-Type': `application/json`,
@@ -357,7 +356,7 @@ const DegreeAttestation = () => {
   //========================================Submit Application ====================
 const onSubmitApplication = async()=>{
  const  data={ApplicationId,applicationStatus:`submit`}
-  const URL = `http://localhost:3000/api/Student/Application/submitApplication`
+  const URL = `/api/Student/Application/submitApplication`
        const res = await fetch(URL, {
           method: `POST`, //BECAUSE WE CHECK User EMAIL 
           headers: {

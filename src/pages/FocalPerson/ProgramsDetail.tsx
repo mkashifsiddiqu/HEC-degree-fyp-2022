@@ -19,6 +19,7 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+const Domain = process.env.Domain
 const Fpdegreedetail = () => {
   //
   
@@ -80,7 +81,7 @@ const Fpdegreedetail = () => {
 
   //===============================Program Detail ================
   const getProgrambyID = async () => {
-    const URL = `http://localhost:3000/api/hec/ListofProgram/${instituteName}`
+    const URL = `/api/hec/ListofProgram/${instituteName}`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -104,7 +105,7 @@ const Fpdegreedetail = () => {
   const addNewProgram = async () => {
     setOpen(false)
     const data = { Program, instituteName, DegreeNameOnUni }
-    const URL = `http://localhost:3000/api/hec/ListofProgram/addNewProgram`
+    const URL = `/api/hec/ListofProgram/addNewProgram`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -134,7 +135,7 @@ const Fpdegreedetail = () => {
     } else {
 
       //when Selected Program
-      const URL = `http://localhost:3000/api/hec/ListofProgram/deleteProgram/${programId}`
+      const URL = `/api/hec/ListofProgram/deleteProgram/${programId}`
       const res = await fetch(URL, {
         method: `DELETE`, // or 'PUT'
         headers: {
@@ -157,7 +158,7 @@ const Fpdegreedetail = () => {
   const updateProgram = async () =>{
     setOpen(false)
     const data = { Program,programId, DegreeNameOnUni }
-    const URL = `http://localhost:3000/api/hec/ListofProgram/updateProgram`
+    const URL = `/api/hec/ListofProgram/updateProgram`
     const res = await fetch(URL, {
       method: `PATCH`, // or 'PUT'
       headers: {
@@ -182,7 +183,7 @@ const Fpdegreedetail = () => {
   //================================Campus Detail=============
 
   const getCampusbyID = async () => {
-    const URL = `http://localhost:3000/api/hec/ListofCampus/${programId}`
+    const URL = `/api/hec/ListofCampus/${programId}`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -210,7 +211,7 @@ const Fpdegreedetail = () => {
     } else {
       setmodelCampus(false)
       const data = { programId, Campus }
-      const URL = `http://localhost:3000/api/hec/ListofCampus/AddNewCampus`
+      const URL = `/api/hec/ListofCampus/AddNewCampus`
       const res = await fetch(URL, {
         method: `POST`, // or 'PUT'
         headers: {
@@ -241,7 +242,7 @@ const Fpdegreedetail = () => {
     } else {
 
       //when Selected Campus
-      const URL = `http://localhost:3000/api/hec/ListofCampus/delCampus/${campusId}`
+      const URL = `/api/hec/ListofCampus/delCampus/${campusId}`
       const res = await fetch(URL, {
         method: `DELETE`, // or 'PUT'
         headers: {
@@ -264,7 +265,7 @@ const Fpdegreedetail = () => {
   const updateCampus = async () =>{
     setmodelCampus(false)
     const data = { Campus,campusId}
-    const URL = `http://localhost:3000/api/hec/ListofCampus/updateCampus`
+    const URL = `/api/hec/ListofCampus/updateCampus`
     const res = await fetch(URL, {
       method: `PATCH`, // or 'PUT'
       headers: {
@@ -288,7 +289,7 @@ const Fpdegreedetail = () => {
   //==========================For Department ============================
 
   const getDepartmentbyID = async () => {
-    const URL = `http://localhost:3000/api/hec/ListofDepartment/${campusId}`
+    const URL = `/api/hec/ListofDepartment/${campusId}`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -319,7 +320,7 @@ const Fpdegreedetail = () => {
       setmodelDepartment(false)
       console.log(`Campus Id`, campusId)
       const data = { Department, campusId }
-      const URL = `http://localhost:3000/api/hec/ListofDepartment/AddNewDepartment/`
+      const URL = `/api/hec/ListofDepartment/AddNewDepartment/`
       const res = await fetch(URL, {
         method: `POST`, // or 'PUT'
         headers: {
@@ -351,7 +352,7 @@ const Fpdegreedetail = () => {
       SetToastMsg(`Please Select any Campus to Delete`)
       SetToast(true)
     } else {
-      const URL = `http://localhost:3000/api/hec/ListofDepartment/delDepartment/${DepartmentId}`
+      const URL = `/api/hec/ListofDepartment/delDepartment/${DepartmentId}`
       const res = await fetch(URL, {
         method: `DELETE`, // or 'PUT'
         headers: {
@@ -374,7 +375,7 @@ const Fpdegreedetail = () => {
   const updateDartment = async () => {
     setmodelDepartment(false)
       const data = { Department, DepartmentId }
-      const URL = `http://localhost:3000/api/hec/ListofDepartment/updateDepartment/`
+      const URL = `/api/hec/ListofDepartment/updateDepartment/`
       const res = await fetch(URL, {
         method: `PATCH`, // or 'PUT'
         headers: {
@@ -399,7 +400,7 @@ const Fpdegreedetail = () => {
   //==========================for Degree Type==========================
 
   const getDegreeTypeID = async () => {
-    const URL = `http://localhost:3000/api/hec/ListOfdegreeType/${DepartmentId}`
+    const URL = `/api/hec/ListOfdegreeType/${DepartmentId}`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -429,7 +430,7 @@ const Fpdegreedetail = () => {
     } else {
       setmodelDegreeType(false)
       const data = { DegreeType, DepartmentId }
-      const URL = `http://localhost:3000/api/hec/ListOfdegreeType/AddNewDegreeType/`
+      const URL = `/api/hec/ListOfdegreeType/AddNewDegreeType/`
       const res = await fetch(URL, {
         method: `POST`, // or 'PUT'
         headers: {
@@ -459,7 +460,7 @@ const Fpdegreedetail = () => {
       SetToast(true)
     } else {
 
-      const URL = `http://localhost:3000/api/hec/ListOfdegreeType/delDegreeType/${DegreeTypetId}`
+      const URL = `/api/hec/ListOfdegreeType/delDegreeType/${DegreeTypetId}`
       const res = await fetch(URL, {
         method: `DELETE`, // or 'PUT'
         headers: {
@@ -482,7 +483,7 @@ const Fpdegreedetail = () => {
   const updateDegreeType = async () => {
       setmodelDegreeType(false)
       const data = { DegreeType, DegreeTypetId }
-      const URL = `http://localhost:3000/api/hec/ListOfdegreeType/updateDegreeType/`
+      const URL = `/api/hec/ListOfdegreeType/updateDegreeType/`
       const res = await fetch(URL, {
         method: `PATCH`, // or 'PUT'
         headers: {
@@ -503,7 +504,7 @@ const Fpdegreedetail = () => {
     }
   //======================================for Session==================
   const getSessionID = async () => {
-    const URL = `http://localhost:3000/api/hec/ListOfSession/${DegreeTypetId}`
+    const URL = `/api/hec/ListOfSession/${DegreeTypetId}`
     const res = await fetch(URL, {
       method: `GET`, // or 'PUT'
       headers: {
@@ -532,7 +533,7 @@ const Fpdegreedetail = () => {
     } else {
       setmodelSession(false)
       const data = { Session, DegreeTypetId }
-      const URL = `http://localhost:3000/api/hec/ListOfSession/AddNewSession`
+      const URL = `/api/hec/ListOfSession/AddNewSession`
       const res = await fetch(URL, {
         method: `POST`, // or 'PUT'
         headers: {
@@ -561,7 +562,7 @@ const Fpdegreedetail = () => {
       SetToastMsg(`Please Select any SessionId to Delete`)
       SetToast(true)
     } else {
-      const URL = `http://localhost:3000/api/hec/ListOfSession/delSession/${SessionId}`
+      const URL = `/api/hec/ListOfSession/delSession/${SessionId}`
       const res = await fetch(URL, {
         method: `DELETE`, // or 'PUT'
         headers: {
@@ -584,7 +585,7 @@ const Fpdegreedetail = () => {
   const updateSession = async () => {
      setmodelSession(false)
       const data = { Session, SessionId }
-      const URL = `http://localhost:3000/api/hec/ListOfSession/updateSession`
+      const URL = `/api/hec/ListOfSession/updateSession`
       const res = await fetch(URL, {
         method: `PATCH`, // or 'PUT'
         headers: {

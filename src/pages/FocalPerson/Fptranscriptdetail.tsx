@@ -36,7 +36,7 @@ import Image from 'next/image'
 const Input = styled(`input`)({
   display: `none`,
 });
-
+const Domain = process.env.Domain
 const FpDegreetemplate = () => {
   const list = useSelector((state) => state.loginFPReducer.userData)
   const { instituteName } = list.data
@@ -97,7 +97,7 @@ const FpDegreetemplate = () => {
   //==============================Degree Type Template ==============================
   const getDegreeType = async () => {
     const data = { instituteName }
-    const URL = `http://localhost:3000/api/degree/getDegreeTypeTemp`
+    const URL = `/api/degree/getDegreeTypeTemp`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -119,7 +119,7 @@ const FpDegreetemplate = () => {
   const AddNewDegreeType = async () => {
     setTypeModel(false)
     const data = { instituteName, TypeTitle: TypeName }
-    const URL = `http://localhost:3000/api/degree/degreeTypeTemplate`
+    const URL = `/api/degree/degreeTypeTemplate`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -141,7 +141,7 @@ const FpDegreetemplate = () => {
   const updateDegreeType = async () => {
     setTemplateModel(false)
     const data = { TypeId, TypeTitle: TypeName }
-    const URL = `http://localhost:3000/api/degree/updateDegreeTypeById`
+    const URL = `/api/degree/updateDegreeTypeById`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -154,7 +154,7 @@ const FpDegreetemplate = () => {
   }
   const delDegreeType = async () => {
     const data = { TypeId }
-    const URL = `http://localhost:3000/api/degree/delTemplateType`
+    const URL = `/api/degree/delTemplateType`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -186,7 +186,7 @@ const FpDegreetemplate = () => {
         console.log(`Current progress:`, (Math.round((event.loaded * 100) / event.total)));
       },
     };
-    const response = await axios.post(`http://localhost:3000/api/degree/DegreetempURL/upload/upload`, formData, config);
+    const response = await axios.post(`/api/degree/DegreetempURL/upload/upload`, formData, config);
     console.log(`Image Upload on Server response`, response.data);
 
     if (response) {
@@ -198,7 +198,7 @@ const FpDegreetemplate = () => {
   };
   const getAllTemplate = async () => {
     const data = { TypeId }
-    const URL = `http://localhost:3000/api/degree/DegreetempURL/getTemplateURL`
+    const URL = `/api/degree/DegreetempURL/getTemplateURL`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -219,7 +219,7 @@ const FpDegreetemplate = () => {
     setTemplateModel(false)
     const data = { TypeId, templateUrl: templateName, startDate, endDate }
     console.log(data)
-    const URL = `http://localhost:3000/api/degree/degreeTemplateUrl`
+    const URL = `/api/degree/degreeTemplateUrl`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -233,7 +233,7 @@ const FpDegreetemplate = () => {
   const delTemplate = async () => {
     const data = { templateId }
    
-    const URL = `http://localhost:3000/api/degree/DegreetempURL/delTemplateurl`
+    const URL = `/api/degree/DegreetempURL/delTemplateurl`
     const res = await fetch(URL, {
       method: `POST`, // or 'PUT'
       headers: {
@@ -396,7 +396,7 @@ const FpDegreetemplate = () => {
                     aria-describedby="modal-modal-description"
                     sx={{display:`flex`,justifyContent:`center`,alignItems:`center`}}
                   >
-                    <img src={`http://localhost:3000/api/degree/preveiwImage/${templateName}`}
+                    <img src={`/api/degree/preveiwImage/${templateName}`}
                          alt={`degreeTemplate`}
                       />
                   </Modal>

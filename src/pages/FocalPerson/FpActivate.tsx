@@ -3,10 +3,10 @@ import { Paper, Box, Typography, TextField, Button } from '@mui/material';
 import React from 'react';
 import bg from '@/public/BackgroundImage/bg.jpg'
 import { useRouter } from 'next/router';
+const Domain = process.env.Domain
 const FpActivate = () => {
   const router = useRouter()
   const { email } = router.query
-  console.log(email)
   const [name, setName] = React.useState<string>(``)
   const [password, setPassword] = React.useState<string>(``)
   const [cpassword, setCPassword] = React.useState<string>(``)

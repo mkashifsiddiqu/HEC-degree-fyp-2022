@@ -159,7 +159,7 @@ export default function CustomPaginationActionsTable() {
   //=============================For Application list get from Data Base
   const getExistApplication = async()=>{
     const data ={email}
-    const res = await fetch(`${Domain}/api/Student/Application/getExistApplication`, {
+    const res = await fetch(`/api/Student/Application/getExistApplication`, {
       method: `POST`, //BECAUSE WE CHECK WITH EMAIL 
       headers: {
         'Content-Type': `application/json`,
@@ -394,7 +394,12 @@ export default function CustomPaginationActionsTable() {
                     </Tooltip>}
                   </TableCell>
                   <TableCell>
-                    <IconButton onClick={()=>{Router.push(`/DegreeAttestation/${row._id}`)}}>
+                    <IconButton onClick={()=>{
+                      if(row.Application_Type==`Degree Attestation Service`)
+                      {Router.push(`/DegreeAttestation/${row._id}`)}
+                      else  if(row.Application_Type==`E-Course`)
+                      {Router.push(`/Ecourses`)}
+                      }}>
                       <Image src={edit} alt="edit"></Image>
                     </IconButton>
                   </TableCell>

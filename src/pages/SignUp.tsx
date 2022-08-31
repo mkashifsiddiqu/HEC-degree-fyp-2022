@@ -73,7 +73,7 @@ const SignUp = () => {
 
     }
     console.log(data)
-    const res = await fetch(`${Domain}/api/Student/User/register`, {
+    const res = await fetch(`/api/Student/User/register`, {
       method: `POST`, // or 'PUT'
       headers: {
         'Content-Type': `application/json`,

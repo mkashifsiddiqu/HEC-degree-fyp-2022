@@ -14,8 +14,8 @@ const connectDb =
     if (mongoose.connections[0].readyState) {
      return handler(req, res);
     }
-    // const conn = process.env.MONGO_URL    
-    await mongoose.connect(`mongodb://127.0.0.1:27017/hecComplaintDv`);
+    const conn = process.env.MONGO_URL    
+    await mongoose.connect(conn);
     
     
     return handler(req, res);

@@ -1,0 +1,1 @@
+https://hec-degree-fyp-2022.vercel.app/api/admin/User/register
